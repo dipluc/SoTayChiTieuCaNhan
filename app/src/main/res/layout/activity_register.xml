@@ -9,32 +9,103 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
-        android:paddingVertical="32dp">
+        android:paddingVertical="20dp">
 
-        <TextView
-            android:id="@+id/tvRegisterTitle"
+        <!-- HEADER ROW: Back Button + Title + Mini Zen Logo -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/ibBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_logo_container"
+                android:contentDescription="Quay lại"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvRegisterTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Đăng ký tài khoản"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_logo_container"
+                android:padding="6dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Logo"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_app_logo" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <!-- SUB-HEADER BADGE & TITLES -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đăng ký tài khoản"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_logo_container"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp">
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:background="@drawable/bg_button_emerald_pill" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Tạo tài khoản mới"
+                android:textColor="@color/primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Bắt đầu quản lý chi tiêu"
             android:textColor="@color/text_primary"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Tạo tài khoản để bắt đầu quản lý chi tiêu"
+            android:text="Tạo tài khoản để lưu lại thu chi và theo dõi ngân sách của bạn một cách khoa học."
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="12sp" />
 
+        <!-- FORM INPUTS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <!-- Full Name -->
@@ -69,7 +140,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:background="@null"
-                    android:hint="Nhập họ và tên"
+                    android:hint="Nhập họ và tên đầy đủ"
                     android:inputType="textPersonName"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_hint"
@@ -109,7 +180,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:background="@null"
-                    android:hint="Tên đăng nhập (không chứa khoảng trắng)"
+                    android:hint="Ví dụ: minhanh"
                     android:inputType="text"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_hint"
@@ -145,23 +216,82 @@
 
                 <EditText
                     android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
+                    android:layout_weight="1"
                     android:background="@null"
-                    android:hint="Mật khẩu (tối thiểu 8 ký tự)"
+                    android:hint="Ít nhất 8 ký tự"
                     android:inputType="textPassword"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_hint"
                     android:textSize="13sp" />
+
+                <ImageButton
+                    android:id="@+id/ibTogglePassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Hiện/Ẩn mật khẩu"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_visibility_off"
+                    app:tint="@color/text_hint" />
             </LinearLayout>
+
+            <!-- Password Strength Bar -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Độ bảo mật: "
+                        android:textColor="@color/text_hint"
+                        android:textSize="11sp" />
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/bg_input_pill" />
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="4dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/bg_input_pill" />
+
+                    <View
+                        android:layout_width="40dp"
+                        android:layout_height="4dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/bg_input_pill" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvStrengthText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Chưa nhập"
+                    android:textColor="@color/text_hint"
+                    android:textSize="11sp" />
+            </RelativeLayout>
 
             <!-- Confirm Password -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="Xác nhận mật khẩu"
+                android:text="Nhập lại mật khẩu"
                 android:textColor="@color/text_primary"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -180,20 +310,55 @@
                     android:layout_height="20dp"
                     android:contentDescription="Icon"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_lock"
+                    android:src="@drawable/ic_security"
                     app:tint="@color/text_hint" />
 
                 <EditText
                     android:id="@+id/etConfirmPassword"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
+                    android:layout_weight="1"
                     android:background="@null"
-                    android:hint="Nhập lại mật khẩu"
+                    android:hint="Nhập lại mật khẩu phía trên"
                     android:inputType="textPassword"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_hint"
                     android:textSize="13sp" />
+
+                <ImageButton
+                    android:id="@+id/ibToggleConfirmPassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Hiện/Ẩn mật khẩu"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_visibility_off"
+                    app:tint="@color/text_hint" />
+            </LinearLayout>
+
+            <!-- Terms & Policy Checkbox Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbTerms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/primary"
+                    android:checked="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Tôi đồng ý với Điều khoản dịch vụ và Chính sách bảo mật."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <!-- REGISTER BUTTON -->
@@ -201,7 +366,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button_emerald_pill"
                 android:clickable="true"
                 android:focusable="true"
@@ -212,7 +377,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Đăng ký"
+                    android:text="Đăng ký tài khoản"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -229,15 +394,65 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
+        <!-- FOOTER & SECURITY BADGE -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:padding="8dp"
-            android:text="Đã có tài khoản? Đăng nhập ngay"
-            android:textColor="@color/primary"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="28dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đã có tài khoản? "
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng nhập ngay"
+                    android:textColor="@color/primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/divider_color" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="Bảo mật"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_security"
+                    app:tint="@color/income_green" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="Bảo mật dữ liệu tài chính 256-bit"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

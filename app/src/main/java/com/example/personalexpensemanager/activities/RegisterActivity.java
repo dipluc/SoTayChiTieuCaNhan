@@ -1,8 +1,13 @@
 package com.example.personalexpensemanager.activities;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,11 +17,16 @@ import com.example.personalexpensemanager.R;
 import com.example.personalexpensemanager.database.UserDAO;
 
 public class RegisterActivity extends AppCompatActivity {
+    private ImageButton ibBack;
     private EditText etFullName, etUsername, etPassword, etConfirmPassword;
-    private Button btnRegister;
-    private TextView tvLogin;
+    private ImageButton ibTogglePassword, ibToggleConfirmPassword;
+    private CheckBox cbTerms;
+    private View btnRegister;
+    private TextView tvLogin, tvStrengthText;
 
     private UserDAO userDAO;
+    private boolean isPasswordVisible = false;
+    private boolean isConfirmPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +35,77 @@ public class RegisterActivity extends AppCompatActivity {
 
         userDAO = new UserDAO(this);
 
+        ibBack = findViewById(R.id.ibBack);
         etFullName = findViewById(R.id.etFullName);
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
+        ibTogglePassword = findViewById(R.id.ibTogglePassword);
+        ibToggleConfirmPassword = findViewById(R.id.ibToggleConfirmPassword);
+        cbTerms = findViewById(R.id.cbTerms);
         btnRegister = findViewById(R.id.btnRegister);
         tvLogin = findViewById(R.id.tvLogin);
+        tvStrengthText = findViewById(R.id.tvStrengthText);
+
+        if (ibBack != null) {
+            ibBack.setOnClickListener(v -> finish());
+        }
+
+        if (ibTogglePassword != null) {
+            ibTogglePassword.setOnClickListener(v -> {
+                isPasswordVisible = !isPasswordVisible;
+                toggleVisibility(etPassword, ibTogglePassword, isPasswordVisible);
+            });
+        }
+
+        if (ibToggleConfirmPassword != null) {
+            ibToggleConfirmPassword.setOnClickListener(v -> {
+                isConfirmPasswordVisible = !isConfirmPasswordVisible;
+                toggleVisibility(etConfirmPassword, ibToggleConfirmPassword, isConfirmPasswordVisible);
+            });
+        }
+
+        setupPasswordStrengthWatcher();
 
         btnRegister.setOnClickListener(v -> performRegister());
         tvLogin.setOnClickListener(v -> finish());
+    }
+
+    private void toggleVisibility(EditText editText, ImageButton toggleBtn, boolean visible) {
+        if (visible) {
+            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            toggleBtn.setImageResource(R.drawable.ic_check);
+        } else {
+            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            toggleBtn.setImageResource(R.drawable.ic_visibility_off);
+        }
+        editText.setSelection(editText.getText().length());
+    }
+
+    private void setupPasswordStrengthWatcher() {
+        if (etPassword == null || tvStrengthText == null) return;
+
+        etPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String p = s.toString();
+                if (p.isEmpty()) {
+                    tvStrengthText.setText("Chưa nhập");
+                } else if (p.length() < 8) {
+                    tvStrengthText.setText("Yếu");
+                } else if (p.matches(".*[A-Z].*") && p.matches(".*[0-9].*")) {
+                    tvStrengthText.setText("Mạnh");
+                } else {
+                    tvStrengthText.setText("Trung bình");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     private void performRegister() {
@@ -64,6 +136,10 @@ public class RegisterActivity extends AppCompatActivity {
         }
         if (!password.equals(confirmPassword)) {
             etConfirmPassword.setError("Mật khẩu nhập lại không khớp");
+            return;
+        }
+        if (cbTerms != null && !cbTerms.isChecked()) {
+            Toast.makeText(this, "Vui lòng đồng ý với Điều khoản dịch vụ & Chính sách bảo mật", Toast.LENGTH_SHORT).show();
             return;
         }
 
