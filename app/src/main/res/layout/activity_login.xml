@@ -14,19 +14,20 @@
         android:paddingHorizontal="24dp"
         android:paddingVertical="32dp">
 
-        <!-- LOGO CONTAINING CONTAINER -->
+        <!-- LOGO CONTAINER -->
         <FrameLayout
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:background="@drawable/bg_logo_container"
             android:elevation="4dp"
-            android:padding="12dp">
+            android:padding="14dp">
 
             <ImageView
                 android:id="@+id/ivLogo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="Logo"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_app_logo" />
         </FrameLayout>
 
@@ -88,20 +89,35 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etUsername"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_input_pill"
-                android:drawableStart="@drawable/ic_user"
-                android:drawablePadding="10dp"
-                android:hint="Nhập tên đăng nhập"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_hint"
-                android:textSize="13sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="User Icon"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user"
+                    app:tint="@color/text_hint" />
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:background="@null"
+                    android:hint="Nhập tên đăng nhập"
+                    android:inputType="text"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="13sp" />
+            </LinearLayout>
 
             <!-- Password Field -->
             <TextView
@@ -113,38 +129,46 @@
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="4dp">
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_input_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="Lock Icon"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_lock"
+                    app:tint="@color/text_hint" />
 
                 <EditText
                     android:id="@+id/etPassword"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_input_pill"
-                    android:drawableStart="@drawable/ic_lock"
-                    android:drawablePadding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
                     android:hint="Nhập mật khẩu"
                     android:inputType="textPassword"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="44dp"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_hint"
                     android:textSize="13sp" />
 
                 <ImageButton
                     android:id="@+id/ibTogglePassword"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="Hiện/Ẩn mật khẩu"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/ic_visibility_off"
-                    app:tint="@color/text_secondary" />
-            </RelativeLayout>
+                    app:tint="@color/text_hint" />
+            </LinearLayout>
 
             <!-- Remember Me & Forgot Password Row -->
             <RelativeLayout
@@ -175,21 +199,37 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <!-- LOGIN BUTTON (Emerald Pill Button with Right Arrow) -->
-            <androidx.appcompat.widget.AppCompatButton
+            <!-- LOGIN BUTTON (Pill Button with Right Arrow) -->
+            <RelativeLayout
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button_emerald_pill"
-                android:drawableEnd="@drawable/ic_next"
-                android:paddingHorizontal="24dp"
-                android:text="Đăng nhập"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:tint="@color/white" />
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingHorizontal="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Đăng nhập"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="Tiếp theo"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_next"
+                    app:tint="@color/white" />
+            </RelativeLayout>
         </LinearLayout>
 
         <!-- FOOTER & SECURITY BADGE -->
@@ -239,6 +279,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="Bảo mật"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/ic_security"
                     app:tint="@color/income_green" />
 
