@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TV1: Core colors & Theme -->
-    <color name="primary">#1E88E5</color>
-    <color name="primary_dark">#1565C0</color>
-    <color name="color_accent">#FF9800</color>
+    <!-- Zen Bloom Theme Palette (Tailwind Emerald & Slate) -->
+    <color name="primary">#10B981</color>
+    <color name="primary_dark">#047857</color>
+    <color name="primary_gradient_start">#10B981</color>
+    <color name="primary_gradient_center">#14B8A6</color>
+    <color name="primary_gradient_end">#047857</color>
 
-    <color name="background_light">#F5F5F5</color>
+    <color name="color_accent">#14B8A6</color>
+
+    <color name="background_light">#FAFCFB</color>
     <color name="surface_light">#FFFFFF</color>
     <color name="card_background">#FFFFFF</color>
 
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="text_hint">#9E9E9E</color>
+    <!-- Slate Text Colors -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
 
     <!-- Financial Colors -->
-    <color name="income_green">#2E7D32</color>
-    <color name="expense_red">#C62828</color>
-    <color name="balance_blue">#1976D2</color>
+    <color name="income_green">#059669</color>
+    <color name="expense_red">#E11D48</color>
+    <color name="balance_blue">#0284C7</color>
 
     <!-- Budget Status Colors -->
-    <color name="budget_safe">#2E7D32</color>
-    <color name="budget_warning">#FB8C00</color>
-    <color name="budget_exceeded">#C62828</color>
+    <color name="budget_safe">#059669</color>
+    <color name="budget_warning">#F59E0B</color>
+    <color name="budget_exceeded">#E11D48</color>
 
     <!-- Divider & Border -->
-    <color name="divider_color">#E0E0E0</color>
+    <color name="divider_color">#E2E8F0</color>
+    <color name="input_border">#E2E8F0</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 </resources>

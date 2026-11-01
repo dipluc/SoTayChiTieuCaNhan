@@ -2,9 +2,11 @@ package com.example.personalexpensemanager.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +20,13 @@ import com.example.personalexpensemanager.utils.SessionManager;
 public class LoginActivity extends AppCompatActivity {
     private EditText etUsername, etPassword;
     private CheckBox cbRememberMe;
+    private ImageButton ibTogglePassword;
     private Button btnLogin;
     private TextView tvRegister;
 
     private UserDAO userDAO;
     private SessionManager sessionManager;
+    private boolean isPasswordVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +46,31 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         cbRememberMe = findViewById(R.id.cbRememberMe);
+        ibTogglePassword = findViewById(R.id.ibTogglePassword);
         btnLogin = findViewById(R.id.btnLogin);
         tvRegister = findViewById(R.id.tvRegister);
+
+        if (ibTogglePassword != null) {
+            ibTogglePassword.setOnClickListener(v -> togglePasswordVisibility());
+        }
 
         btnLogin.setOnClickListener(v -> performLogin());
         tvRegister.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            ibTogglePassword.setImageResource(R.drawable.ic_visibility_off);
+        } else {
+            etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            ibTogglePassword.setImageResource(R.drawable.ic_check);
+        }
+        isPasswordVisible = !isPasswordVisible;
+        etPassword.setSelection(etPassword.getText().length());
     }
 
     private void performLogin() {
