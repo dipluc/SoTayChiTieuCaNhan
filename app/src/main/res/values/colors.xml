@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Zen Bloom Theme Palette (Tailwind Emerald & Slate) -->
-    <color name="primary">#10B981</color>
+    <!-- Zen Bloom Palette from Image -->
+    <color name="primary">#059669</color>
     <color name="primary_dark">#047857</color>
-    <color name="primary_gradient_start">#10B981</color>
-    <color name="primary_gradient_center">#14B8A6</color>
-    <color name="primary_gradient_end">#047857</color>
-
-    <color name="color_accent">#14B8A6</color>
+    <color name="color_accent">#10B981</color>
 
     <color name="background_light">#FAFCFB</color>
     <color name="surface_light">#FFFFFF</color>
@@ -31,6 +27,7 @@
     <!-- Divider & Border -->
     <color name="divider_color">#E2E8F0</color>
     <color name="input_border">#E2E8F0</color>
+    <color name="logo_border">#A7F3D0</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 </resources>

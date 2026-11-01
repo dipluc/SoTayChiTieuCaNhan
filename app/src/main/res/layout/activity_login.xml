@@ -14,35 +14,21 @@
         android:paddingHorizontal="24dp"
         android:paddingVertical="32dp">
 
-        <!-- LOGO ZEN BLOOM -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:cardCornerRadius="22dp"
-            app:cardElevation="6dp"
-            app:strokeWidth="0dp">
+        <!-- LOGO CONTAINING CONTAINER -->
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_logo_container"
+            android:elevation="4dp"
+            android:padding="12dp">
 
-            <FrameLayout
+            <ImageView
+                android:id="@+id/ivLogo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_button_emerald"
-                android:padding="2dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_card_zen">
-
-                    <ImageView
-                        android:id="@+id/ivLogo"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center"
-                        android:contentDescription="Logo"
-                        android:src="@drawable/ic_app_logo" />
-                </FrameLayout>
-            </FrameLayout>
-        </com.google.android.material.card.MaterialCardView>
+                android:contentDescription="Logo"
+                android:src="@drawable/ic_app_logo" />
+        </FrameLayout>
 
         <!-- APP TITLE & SLOGAN -->
         <TextView
@@ -50,9 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/app_name"
+            android:text="Sổ tay Chi tiêu Cá nhân"
             android:textColor="@color/text_primary"
-            android:textSize="21sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -60,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/app_slogan"
+            android:text="Ghi chép hôm nay, an tâm ngày mai."
             android:textColor="@color/text_secondary"
             android:textSize="13sp" />
 
@@ -80,7 +66,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_login"
+                    android:text="Đăng nhập"
                     android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -89,7 +75,7 @@
                     android:layout_width="6dp"
                     android:layout_height="6dp"
                     android:layout_marginStart="6dp"
-                    android:background="@drawable/bg_button_emerald" />
+                    android:background="@drawable/bg_button_emerald_pill" />
             </LinearLayout>
 
             <!-- Username Field -->
@@ -107,12 +93,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/bg_input_rounded"
+                android:background="@drawable/bg_input_pill"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="10dp"
                 android:hint="Nhập tên đăng nhập"
                 android:inputType="text"
-                android:paddingHorizontal="14dp"
+                android:paddingHorizontal="16dp"
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint"
                 android:textSize="13sp" />
@@ -136,12 +122,12 @@
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_input_rounded"
+                    android:background="@drawable/bg_input_pill"
                     android:drawableStart="@drawable/ic_lock"
                     android:drawablePadding="10dp"
                     android:hint="Nhập mật khẩu"
                     android:inputType="textPassword"
-                    android:paddingStart="14dp"
+                    android:paddingStart="16dp"
                     android:paddingEnd="44dp"
                     android:textColor="@color/text_primary"
                     android:textColorHint="@color/text_hint"
@@ -153,7 +139,7 @@
                     android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="4dp"
+                    android:layout_marginEnd="6dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="Hiện/Ẩn mật khẩu"
                     android:src="@drawable/ic_visibility_off"
@@ -164,13 +150,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="12dp">
 
                 <CheckBox
                     android:id="@+id/cbRememberMe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:buttonTint="@color/primary"
                     android:checked="true"
                     android:text="Ghi nhớ đăng nhập"
                     android:textColor="@color/text_secondary"
@@ -188,15 +175,15 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <!-- LOGIN BUTTON (Zen Bloom Emerald Gradient) -->
+            <!-- LOGIN BUTTON (Emerald Pill Button with Right Arrow) -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_button_emerald"
+                android:background="@drawable/bg_button_emerald_pill"
                 android:drawableEnd="@drawable/ic_next"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="24dp"
                 android:text="Đăng nhập"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
@@ -213,26 +200,38 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvRegister"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="Chưa có tài khoản? Đăng ký ngay"
-                android:textColor="@color/primary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa có tài khoản? "
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đăng ký ngay"
+                    android:textColor="@color/primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/divider_color" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="14dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -247,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:text="@string/security_badge"
+                    android:text="Dữ liệu cá nhân, luôn trong tầm tay."
                     android:textColor="@color/text_secondary"
                     android:textSize="12sp" />
             </LinearLayout>

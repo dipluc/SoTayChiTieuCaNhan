@@ -21,27 +21,25 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="10dp">
+        android:paddingVertical="8dp">
 
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="0dp"
-            android:layout_height="44dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_input_rounded"
+            android:background="@drawable/bg_search_input"
             android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="10dp"
+            android:drawablePadding="8dp"
             android:hint="@string/hint_search"
             android:inputType="text"
-            android:paddingHorizontal="14dp"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_hint"
-            android:textSize="13sp" />
+            android:paddingHorizontal="12dp"
+            android:textSize="14sp" />
 
         <Spinner
             android:id="@+id/spFilter"
             android:layout_width="wrap_content"
-            android:layout_height="44dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp" />
     </LinearLayout>
 
@@ -51,26 +49,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutSearchFilter"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="6dp"
+        android:layout_marginVertical="4dp"
         app:cardBackgroundColor="@color/card_background"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="3dp"
-        app:strokeColor="@color/divider_color"
-        app:strokeWidth="1dp">
+        app:cardCornerRadius="12dp"
+        app:cardElevation="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_monthly_balance"
                 android:textColor="@color/text_secondary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvMonthlyBalance"
@@ -78,14 +73,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="0 ₫"
-                android:textColor="@color/text_primary"
-                android:textSize="24sp"
+                android:textColor="@color/balance_blue"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginVertical="14dp"
+                android:layout_marginVertical="12dp"
                 android:background="@color/divider_color" />
 
             <LinearLayout
@@ -174,7 +169,7 @@
             android:text="@string/empty_transaction_list"
             android:textAlignment="center"
             android:textColor="@color/text_secondary"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:visibility="gone" />
     </FrameLayout>
 

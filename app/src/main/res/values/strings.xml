@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">Sổ tay Chi tiêu Cá nhân</string>
-    <string name="app_slogan">Ghi chép hôm nay, an tâm ngày mai.</string>
-    <string name="security_badge">Dữ liệu cá nhân, luôn trong tầm tay.</string>
+    <string name="app_name">Sổ Tay Chi Tiêu Cá Nhân</string>
 
     <!-- TV1: Core & Transactions -->
     <string name="title_main">Sổ Tay Chi Tiêu</string>
@@ -41,7 +39,7 @@
 
     <!-- TV2: Categories & Search/Filter -->
     <string name="title_categories">Quản lý danh mục</string>
-    <string name="hint_search">Tìm kiếm ghi chú giao dịch…</string>
+    <string name="hint_search">Tìm kiếm ghi chú giao dịch...</string>
     <string name="filter_all">Tất cả</string>
     <string name="filter_income">Thu nhập</string>
     <string name="filter_expense">Chi tiêu</string>
