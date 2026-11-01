@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Sổ Tay Chi Tiêu Cá Nhân</string>
+
+    <!-- TV1: Core & Transactions -->
+    <string name="title_main">Sổ Tay Chi Tiêu</string>
+    <string name="title_add_transaction">Thêm giao dịch</string>
+    <string name="title_edit_transaction">Sửa giao dịch</string>
+    <string name="label_monthly_balance">Số dư tháng này</string>
+    <string name="label_total_income">Tổng thu</string>
+    <string name="label_total_expense">Tổng chi</string>
+    <string name="label_recent_transactions">Giao dịch gần đây</string>
+    <string name="empty_transaction_list">Chưa có giao dịch nào. Bấm nút + để thêm mới!</string>
+    <string name="label_amount">Số tiền</string>
+    <string name="hint_amount">Nhập số tiền (VNĐ)</string>
+    <string name="label_currency_vnd">VNĐ</string>
+    <string name="label_type">Loại giao dịch</string>
+    <string name="type_expense">Chi tiêu</string>
+    <string name="type_income">Thu nhập</string>
+    <string name="label_category">Danh mục</string>
+    <string name="label_date">Ngày thực hiện</string>
+    <string name="label_note">Ghi chú</string>
+    <string name="hint_note">Nhập ghi chú (không bắt buộc)</string>
+    <string name="label_receipt_image">Ảnh hóa đơn (không bắt buộc)</string>
+    <string name="btn_select_image">Chọn ảnh hóa đơn</string>
+    <string name="btn_remove_image">Xóa ảnh</string>
+    <string name="btn_save">Lưu giao dịch</string>
+    <string name="btn_cancel">Hủy</string>
+    <string name="action_edit">Sửa</string>
+    <string name="action_delete">Xóa</string>
+
+    <string name="err_empty_amount">Số tiền không được để trống</string>
+    <string name="err_invalid_amount">Số tiền phải lớn hơn 0</string>
+    <string name="err_empty_category">Vui lòng chọn danh mục</string>
+    <string name="err_empty_date">Vui lòng chọn ngày</string>
+    <string name="msg_transaction_added">Đã thêm giao dịch thành công</string>
+    <string name="msg_transaction_updated">Đã cập nhật giao dịch</string>
+    <string name="msg_transaction_deleted">Đã xóa giao dịch</string>
+    <string name="msg_confirm_delete_trans">Bạn có chắc chắn muốn xóa giao dịch này?</string>
+
+    <!-- TV2: Categories & Search/Filter -->
+    <string name="title_categories">Quản lý danh mục</string>
+    <string name="hint_search">Tìm kiếm ghi chú giao dịch...</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="filter_income">Thu nhập</string>
+    <string name="filter_expense">Chi tiêu</string>
+
+    <!-- TV3: Thống kê & Ngân sách -->
+    <string name="title_statistics">Thống kê chi tiêu</string>
+    <string name="label_period">Thời gian</string>
+    <string name="period_day">Theo ngày</string>
+    <string name="period_month">Theo tháng</string>
+    <string name="period_year">Theo năm</string>
+
+    <!-- TV4: Xác thực & Cài đặt -->
+    <string name="title_login">Đăng nhập</string>
+    <string name="title_register">Đăng ký tài khoản</string>
+    <string name="title_settings">Cài đặt hệ thống</string>
+</resources>

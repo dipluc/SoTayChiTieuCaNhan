@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TV1 & TV4: Dark Mode colors -->
+    <color name="primary">#90CAF9</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="color_accent">#FFB74D</color>
+
+    <color name="background_light">#121212</color>
+    <color name="surface_light">#1E1E1E</color>
+    <color name="card_background">#242424</color>
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_hint">#757575</color>
+
+    <!-- Financial Colors -->
+    <color name="income_green">#81C784</color>
+    <color name="expense_red">#EF5350</color>
+    <color name="balance_blue">#64B5F6</color>
+
+    <!-- Budget Status Colors -->
+    <color name="budget_safe">#81C784</color>
+    <color name="budget_warning">#FFB74D</color>
+    <color name="budget_exceeded">#EF5350</color>
+
+    <!-- Divider & Border -->
+    <color name="divider_color">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
